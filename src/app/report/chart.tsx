@@ -11,7 +11,7 @@ const chartConfig = {
     }
 } satisfies ChartConfig
 
-export function Report({ chartData }: { chartData: any }) {
+export function Report({ chartData }: { chartData: { date: string; quantity: number }[] }) {
     return (
         <div className="sm:p-4 p-2 flex flex-col gap-4 text-center border shadow-md rounded-lg">
             <Label className="md:text-lg font-bold ">

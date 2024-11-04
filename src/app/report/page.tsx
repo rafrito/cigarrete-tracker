@@ -15,7 +15,7 @@ export default async function ChartPage() {
 
     const chartData = data.map(item => ({
         date: formatDate(item.date),
-        quantity: item.quantity,
+        quantity: +item.quantity,
     }));
 
     return (

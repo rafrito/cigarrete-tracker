@@ -20,7 +20,7 @@ export default function EntriesList({ entries }: { entries: QueryResultRow[] }) 
 
   const columnKeys = Object.keys(columns) as Array<keyof QueryResultRow>;
 
-  const formatCell = (value: any, key: keyof QueryResultRow) => {
+  const formatCell = (value: string, key: keyof QueryResultRow) => {
     if (key === "date") {
       const date = new Date(value);
       return date.toLocaleDateString();

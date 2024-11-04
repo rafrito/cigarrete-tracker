@@ -22,16 +22,18 @@ export default function FormContainer() {
     const { form, resetFormState } = formHandler();
     const { toast } = useToast();
 
-    const handleSubmit = async (e: any) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.target);
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
         await submitForm(formData);
         toast({
-            title: "Contagem adicionada",
-            description: "Seu registro foi adicionado com sucesso" 
-        })
+          title: "Contagem adicionada",
+          description: "Seu registro foi adicionado com sucesso",
+        });
         resetFormState();
-    };
+      };
+      
 
     return (
         <div className="flex h-full w-full items-center justify-center">

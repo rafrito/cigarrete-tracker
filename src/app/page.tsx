@@ -1,7 +1,5 @@
+import { Report } from "./report/chart";
+
 export default function Home() {
-    return (
-        <div>
-            <h1>Report</h1>
-        </div>
-    );
+    return <></>
 }

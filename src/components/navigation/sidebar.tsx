@@ -8,7 +8,7 @@ export default function NavBar() {
                 <NavigationMenu>
                     <NavigationMenuList>
                         <NavigationLink page="Formulário" href="/form" />
-                        <NavigationLink page="Relatório" href="/" />
+                        <NavigationLink page="Relatório" href="/report" />
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>

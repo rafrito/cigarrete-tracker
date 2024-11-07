@@ -11,6 +11,8 @@ import {
 import type { QueryResultRow } from "@vercel/postgres";
 
 export default function EntriesList({ entries }: { entries: QueryResultRow[] }) {
+  const sortedEntries = [...entries].sort((a, b) => a.date < b.date ? 1 : -1);
+  
   const columns: Record<keyof QueryResultRow, { name: string }> = {
     date: { name: "Data" },
     quantity: { name: "Quantidade" },
@@ -49,7 +51,7 @@ export default function EntriesList({ entries }: { entries: QueryResultRow[] }) 
             ))}
           </TableRow>
         </TableHeader>
-        <TableBody>{entries.map((entry) => fillRow(entry))}</TableBody>
+        <TableBody>{sortedEntries.map((entry) => fillRow(entry))}</TableBody>
       </Table>
     </div>
   );

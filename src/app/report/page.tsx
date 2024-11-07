@@ -1,8 +1,14 @@
+"use client"
+
+import { QueryResultRow } from "@vercel/postgres";
 import { getAll } from "../actions/entries";
 import { Report } from "./chart";
 import EntriesList from "./entries-list";
+import { useEffect, useState } from "react";
 
-export default async function ChartPage() {
+
+export default function ChartPage() {
+    const [ data, setData ] = useState([] as QueryResultRow[])
     const formatDate = (date: string) => {
         const [year, month, day] = (new Date(date).toISOString().split('T')[0]).split('-')
         if (day === '01') {
@@ -11,7 +17,10 @@ export default async function ChartPage() {
         }
         return day
     }
-    const data = await getAll();
+
+    useEffect(() => {
+        getAll().then(setData)
+    }, [])
 
     const chartData = data.map(item => ({
         date: formatDate(item.date),
